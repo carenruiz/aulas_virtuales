@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+.App {
+	font-family: 'Montserrat', sans-serif;
+	background-color:#e8e8e8;
+}
+
+// color
+$white: #fff;
+$black: #000;
+$gray: #e8e8e8;
+$salmon: #e8716d;
+$smoky-black:#555555;
+$ff: 'Montserrat', sans-serif;
+$ff-body: 12px;
+$ff-light: 300;
+$ff-regular: 400;
+$ff-medium: 500;
+$green:#67d26f;
+
+// login
+button
+{  background-color: transparent;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	cursor: pointer;
+}
+input
+{  
+	background-color: transparent;
+	padding: 0;
+	border: 0;
+	outline: 0;
+
+	&[type="submit"]
+	{  cursor: pointer;}
+
+	&::placeholder
+	{    
+		font-size: .85rem;
+		font-family: $ff;
+		font-weight: $ff-light;
+		letter-spacing: .1rem;
+		color: $gray;
+	}
+}
+
+.user
+{
+	display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  width: 100%;
+	  height: 100vh;
+	  background-size: cover;
+
+	.user_options-container{
+		position:relative;
+		width:80%;
+		.user_options-unregistered,.user_options-registered{
+			width: 50%;
+			padding: 75px 45px;
+			color: $white;
+			text-align:left;
+		}
+		.user_options-text
+		{    
+			display: flex;
+		    justify-content: space-between;
+		    width: 100%;
+		    background-color: $smoky-black;
+		    & button{
+		    	border: 1px solid #fff;
+			    padding: 10px 40px;
+			    font-weight: 400;
+			    border-radius: 3px;
+			    color: #fff;
+			    font-size: 16px;
+			    &:hover{
+			    	background-color:$green;
+			    }
+		    }
+		}
+
+		.user_options-forms{
+			position: absolute;
+			top: 50%;
+			left: 30px;
+			width: calc(50% - 30px);
+			min-height: 420px;
+			background-color: $white;
+			border-radius: 2px;
+			box-shadow: 2px 0 15px #000;
+			overflow: hidden;
+			&.user_option-registered{
+			    transform: translate3d(0%, -50%, 0);
+			    animation: register 0.5s;
+			}
+			&.user_options-login.user_options-forms{
+				transform: translate3d(100%, -50%, 0);
+				animation:  login 0.2s;
+				display: flex;
+			    justify-content: center;
+
+			}
+			input{
+				&.forms_buttons-action{
+				    padding: 10px 40px;
+				    font-weight: 400;
+				    border-radius: 3px;
+				    color: #fff;
+				    font-size: 16px;
+				    background-color:$green;
+				    &:hover{
+				    	background-color:#068cf6;
+				    }
+				}
+			}
+			.user_forms-signup
+			{ 
+				width:100%;
+				animation: slide 0.5s forwards;
+      			transform: translate3d(120px, 0, 0);
+			}
+			.user_forms-login{
+				width:100%;
+				animation: slide 0.5s forwards;
+      			transform: translate3d(-120px,0,0);
+			}
+			form.forms_form .forms_fieldset{
+			    border: none;
+			    .forms_field{
+			    	margin:36px 0;
+			  		input{
+						width: 80%;
+						margin: 0 10px;
+						border-bottom: 1px solid #eee;
+						&::placeholder{
+							color:#7c7676;
+						}
+			    	}
+			    }
+			}
+			.forms_buttons{
+			   	display:flex;
+			   justify-content:space-around;
+			}
+		}
+	}
+}
+
+
+@keyframes slide
+{  
+	100%
+	{    
+	
+	    transform: translate3d(0, 0, 0);
+	}
+}
+@keyframes register {
+    0%  {left:0px;}
+    0%  {left:200px;}
+}
+
+@keyframes login {
+    0%  {left:0px}
+    0%  {right:200px;}
+}
+
